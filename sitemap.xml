@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- ================= MAIN PAGES ================= -->
+  <!-- 1. Home Page -->
+  <url>
+    <loc>https://gulbazar.shop/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- 2. Shop All Watches -->
+  <url>
+    <loc>https://gulbazar.shop/#shop</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- ================= PRODUCT CATEGORIES (SEO KEYWORDS) ================= -->
+  
+  <!-- 3. Luxury Watches -->
+  <url>
+    <loc>https://gulbazar.shop/#home:Luxury%20Watches</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 4. Smart Watches -->
+  <url>
+    <loc>https://gulbazar.shop/#home:Smart%20Watches</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 5. Men's Watches -->
+  <url>
+    <loc>https://gulbazar.shop/#home:Mens%20Watches</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 6. Women's Watches -->
+  <url>
+    <loc>https://gulbazar.shop/#home:Womens%20Watches</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ================= INFO PAGES ================= -->
+  <url>
+    <loc>https://gulbazar.shop/#about</loc>
+    <lastmod>2025-12-19</lastmod>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gulbazar.shop/#contact</loc>
+    <lastmod>2025-12-19</lastmod>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
