@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ================= SEO & METADATA (GUL BAZAR - WATCHES) ================= -->
+    <title>Gul Bazar | Premium Watch Store Pakistan</title>
+    <meta name="description" content="Shop the finest collection of Luxury and Smart Watches at Gul Bazar. Pakistan's trusted online store for premium timepieces, men's fashion, and accessories.">
+    <meta name="keywords" content="Gul Bazar, GulBazar, Watches Pakistan, Luxury Watches, Smart Watches, Men's Watches, Women's Watches, Online Watch Store, Branded Watches, Gul Bazar Shop">
+    <meta name="author" content="Gul Bazar">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://gulbazar.shop/">
+
+    <!-- Open Graph / Facebook / WhatsApp Display -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gulbazar.shop/">
+    <meta property="og:title" content="Gul Bazar | Premium Watch Boutique">
+    <meta property="og:description" content="Discover elegant luxury and smart watches. Best prices in Pakistan only at Gul Bazar.">
+    <meta property="og:image" content="https://i.ibb.co/jk6hQpwS/Picsart-26-02-12-12-39-12-723.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Sidebar Menu (Mobile) -->
+    <div class="sidebar-overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <!-- Sidebar Logo: TEXT BASED -->
+            <div class="brand-logo sidebar-brand">
+                <span class="brand-main">GUL BAZAR</span>
+                <span class="brand-sub">WATCH BOUTIQUE</span>
+            </div>
+            <i class="fas fa-times" onclick="toggleMenu()" style="font-size:1.4rem; cursor:pointer;"></i>
+        </div>
+        <div class="sidebar-menu">
+            <a onclick="triggerRouter('home')" class="sidebar-link"><i class="fas fa-home" style="width:25px;"></i> Home</a>
+            <a onclick="triggerRouter('shop')" class="sidebar-link"><i class="fas fa-clock" style="width:25px;"></i> All Watches</a>
+            <a onclick="triggerRouter('history')" class="sidebar-link"><i class="fas fa-history" style="width:25px;"></i> Order History</a>
+            <a onclick="triggerRouter('about')" class="sidebar-link"><i class="fas fa-info-circle" style="width:25px;"></i> About Us</a>
+            <a onclick="triggerRouter('contact')" class="sidebar-link"><i class="fas fa-envelope" style="width:25px;"></i> Contact Us</a>
+            
+            <div style="padding: 15px 20px; font-size: 0.9rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Collections</div>
+            <div id="dynamic-cats-sidebar">
+                <div style="padding:10px 20px;">
+                    <div class="skeleton sk-text" style="width:100px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER/CART MODAL -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box">
+            <i class="fas fa-times close-modal" onclick="closeOrderModal()"></i>
+            <h3 style="margin-bottom:15px; color:var(--text); font-size: 1.4rem;" id="modal-title">Complete Order</h3>
+            
+            <div id="modal-product-select-container" style="margin-bottom: 15px;"></div>
+
+            <!-- Summary Box: Compact View -->
+            <div class="summary-box" id="modal-summary" style="max-height: 250px; overflow-y: auto;"></div>
+            
+            <div id="modal-total" style="text-align: right; font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: var(--primary);"></div>
+
+            <form class="modal-form" onsubmit="submitOrder(event)">
+                <label style="font-weight:700; display:block; margin-bottom:5px;">Payment Method:</label>
+                <div class="payment-options-grid" id="payment-methods-container">
+                    <div class="skeleton sk-text" style="height:40px; width:100%;"></div>
+                </div>
+                <div id="payment-details-display" class="hidden"></div>
+                <div id="trx-input-area" class="hidden">
+                    <input type="text" id="pay-trx" placeholder="Transaction ID (Required)">
+                    <label style="font-size:0.8rem; font-weight:bold;">Upload Payment Screenshot:</label>
+                    <input type="file" id="pay-screenshot" accept="image/*" style="padding:8px; border:1px solid #ddd; width:100%; border-radius:5px;">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <input type="text" id="cust-name" placeholder="Full Name" required>
+                    <input type="tel" id="cust-phone" placeholder="Primary Phone" required>
+                </div>
+                <input type="tel" id="cust-phone-2" placeholder="Secondary Phone / WhatsApp (Optional)">
+                <input type="text" id="cust-city" placeholder="City (e.g. Lahore, Karachi)" required>
+                <textarea id="cust-address" rows="2" placeholder="Full Delivery Address (Street, House No, Area)" required></textarea>
+                <input type="text" id="cust-landmark" placeholder="Nearby Landmark (Famous Place, Masjid, School etc.)" required>
+                <button type="submit" id="btn-submit-order" class="btn" style="width:100%; background: var(--primary); color:white; padding:12px; border-radius:5px; font-weight:bold;">
+                    <i class="fab fa-whatsapp"></i> Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container flex-between">
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            
+            <!-- LOGO: TEXT BASED -->
+            <a onclick="triggerRouter('home')" class="logo-link">
+                <div class="brand-logo">
+                    <span class="brand-main">GUL BAZAR</span>
+                    <span class="brand-sub">WATCH BOUTIQUE</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav" id="header-nav">
+                <a onclick="triggerRouter('home')">Home</a>
+                <a onclick="triggerRouter('shop')">Watches</a>
+                <a onclick="triggerRouter('about')">About Us</a>
+                <a onclick="triggerRouter('contact')">Contact</a>
+            </nav>
+            <div class="nav-icons">
+                <i class="fas fa-search" style="font-size:1.2rem; cursor:pointer;" onclick="toggleSearchBar()"></i>
+                <div class="cart-icon-wrap" onclick="openCartModal()">
+                    <i class="fas fa-shopping-bag" style="color:var(--primary)"></i>
+                    <div class="cart-badge" id="cart-count">0</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" id="search-bar">
+        <div class="search-input-wrap">
+            <input type="text" class="search-input" id="global-search-input" placeholder="Search watches..." oninput="handleSearch(this.value)">
+            <button onclick="toggleSearchBar()" style="font-size:1.2rem; color:#888;"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="app" style="flex:1;">
+        <!-- Dynamic Content -->
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast"></div>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-float" target="_blank" id="wa-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <!-- Footer Logo: TEXT BASED (WHITE) -->
+                    <div class="brand-logo footer-brand">
+                        <span class="brand-main">GUL BAZAR</span>
+                        <span class="brand-sub">WATCH BOUTIQUE</span>
+                    </div>
+                    <p style="line-height:1.6; font-size:0.9rem; margin-top:10px;">Experience elegance with our premium watch collection. Delivering luxury and quality timepieces to your doorstep in Pakistan.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a onclick="triggerRouter('home')">Home Page</a></li>
+                        <li><a onclick="triggerRouter('shop')">All Watches</a></li>
+                        <li><a onclick="triggerRouter('history')">My Orders</a></li>
+                        <li><a onclick="triggerRouter('about')">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links" id="footer-contact">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center" style="border-top:1px solid #333; padding-top:20px; font-size:0.8rem; color:#777;">
+                &copy; 2025 Gul Bazar. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
